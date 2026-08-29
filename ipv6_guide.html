@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Enable IPv6 in Minecraft</title>
+    <style>
+        body {
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .intro {
+            background: #eaf2f8;
+            padding: 15px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background: #e67e22;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #d35400;
+        }
+        .step {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #fafafa;
+        }
+        .step img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .step-number {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>How to Enable IPv6 in Minecraft</h1>
+    
+    <div class="intro">
+        <p>Some Minecraft launchers (notably TLauncher) start the game with the Java argument <span class="code">-Djava.net.preferIPv4Stack=true</span>. This disables IPv6 networking, which means you cannot connect to servers that are only reachable via IPv6.</p>
+        <p>Follow the instructions below to enable IPv6 for your launcher.</p>
+    </div>
+
+    <a href="#tlauncher" class="btn">Using TLauncher? Click here for specific instructions</a>
+
+    <div id="general-launchers">
+        <h2>General Launchers</h2>
+        <p>For most standard Minecraft launchers (official launcher, Prism Launcher, MultiMC, etc.):</p>
+        <ol>
+            <li>Go to your launcher's <strong>Settings</strong> and find the <strong>JVM Arguments</strong> section.</li>
+            <li>Check if the argument <span class="code">-Djava.net.preferIPv4Stack=true</span> exists. If it does, change <span class="code">true</span> to <span class="code">false</span>.</li>
+            <li>If the argument does not exist, add the following to the end of your JVM arguments:<br>
+            <span class="code">-Djava.net.preferIPv4Stack=false -Djava.net.preferIPv6Addresses=true</span></li>
+            <li>Save your settings and launch the game.</li>
+        </ol>
+    </div>
+
+    <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+    <div id="tlauncher">
+        <h2>TLauncher Users</h2>
+        <p>TLauncher hardcodes <span class="code">-Djava.net.preferIPv4Stack=true</span> internally. The only way to override this through the UI is by adding a custom Java installation with modified arguments. Follow these steps:</p>
+
+        <div class="step">
+            <h3><span class="step-number">1</span> Open Settings</h3>
+            <p>On the main launcher screen, press the <strong>cogwheel</strong> icon in the bottom right corner, then select <strong>Settings</strong>.</p>
+            <img src="./images/step1.png" alt="TLauncher Main Screen - Cogwheel">
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">2</span> Change Java Selection</h3>
+            <p>In settings, go to the <strong>Minecraft settings</strong> tab. Then, press on <strong>Change</strong> on the row labeled <em>Selection java</em>.</p>
+            <img src="./images/step2.png" alt="Minecraft Settings - Change Java">
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">3</span> Add Custom Java</h3>
+            <p>At the "Change or add custom Java" panel, press on <strong>Browse</strong>.</p>
+            <img src="./images/step3.png" alt="Change or Add Custom Java - Browse">
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">4</span> Select Java Bin Folder</h3>
+            <p>At the open panel, navigate to your Java installation folder, select the <strong>bin</strong> folder, and press <strong>Open</strong>. <em>(Note: Your Java version may differ from the screenshot. Mine is 26.0.1)</em></p>
+            <img src="./images/step4.png" alt="Select Java bin folder">
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">5</span> Edit JVM Arguments</h3>
+            <p>Back at the "Change or add custom Java" panel, the Java arguments will be automatically filled with default launcher arguments. The <span class="code">preferIPv4Stack</span> flag defaults to <span class="code">true</span>. <strong>Change it to <span class="code">false</span></strong>, then press <strong>Save</strong>.</p>
+            <img src="./images/step5.png" alt="Edit JVM Arguments">
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">6</span> Select Your Custom Java</h3>
+            <p>Back to the Settings tab, on the <em>Selection java</em> row, press the down arrow to list all available Java versions. <strong>Select the newly created custom Java</strong> (mine is named <em>jdk-26.0.1</em>), and after that, press <strong>Save</strong>.</p>
+            <img src="./images/step6.png" alt="Select Custom Java from Dropdown">
+        </div>
+
+        <div class="step">
+            <h3><span class="step-number">7</span> Enter the Game</h3>
+            <p>The configuration is complete. You can now <strong>Enter the game</strong> and use IPv6 to join servers.</p>
+            <img src="./images/step7.png" alt="Enter the game">
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
