@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -79,6 +79,21 @@
             font-family: monospace;
             color: #c0392b;
         }
+        .notice-box {
+            background: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 12px 16px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+        .notice-box ul {
+            margin: 8px 0 0 20px;
+            padding: 0;
+        }
+        .notice-box li {
+            margin-bottom: 4px;
+        }
     </style>
 </head>
 <body>
@@ -130,8 +145,19 @@
         </div>
 
         <div class="step">
-            <h3><span class="step-number">4</span> Select Java Bin Folder</h3>
-            <p>At the open panel, navigate to your Java installation folder, select the <strong>bin</strong> folder, and press <strong>Open</strong>. <em>(Note: Your Java version may differ from the screenshot. Mine is 26.0.1)</em></p>
+            <h3><span class="step-number">4</span> Navigate to Your Java Bin Folder</h3>
+            <p>A file browser dialog will appear. <strong>Manually browse</strong> to where Java is installed on <em>your</em> computer, open your Java installation folder, select the <strong>bin</strong> folder inside it, and click <strong>Open</strong>.</p>
+            
+            <div class="notice-box">
+                <strong>DO NOT copy/paste the path from the screenshot..</strong>
+                <p style="margin: 6px 0 0 0;">Your Java path and version will be different from the screenshot. You must click through your file explorer to find it. Common installation directories on Windows include:</p>
+                <ul>
+                    <li><span class="code">C:\Program Files\Java\jdk-...</span> or <span class="code">jre-...</span></li>
+                    <li><span class="code">C:\Program Files\Eclipse Adoptium\jdk-...</span></li>
+                    <li><span class="code">C:\Program Files\Microsoft\jdk-...</span></li>
+                </ul>
+            </div>
+            
             <img src="./images/step4.png" alt="Select Java bin folder">
         </div>
 
@@ -143,7 +169,7 @@
 
         <div class="step">
             <h3><span class="step-number">6</span> Select Your Custom Java</h3>
-            <p>Back to the Settings tab, on the <em>Selection java</em> row, press the down arrow to list all available Java versions. <strong>Select the newly created custom Java</strong> (mine is named <em>jdk-26.0.1</em>), and after that, press <strong>Save</strong>.</p>
+            <p>Back to the Settings tab, on the <em>Selection java</em> row, press the down arrow to list all available Java versions. <strong>Select the newly created custom Java</strong> (the name will match your Java version), and after that, press <strong>Save</strong>.</p>
             <img src="./images/step6.png" alt="Select Custom Java from Dropdown">
         </div>
 
@@ -158,6 +184,3 @@
 
 </body>
 </html>
-
-
-
